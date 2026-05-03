@@ -52,9 +52,18 @@ class TestSetHintExtraction:
     def test_description_fallback(self):
         assert _extract_set_hint("Episode 400", "We cover wilds of eldraine today") == "WOE"
 
+    def test_secrets_of_strixhaven_is_sos_not_stx(self):
+        assert _extract_set_hint("Secrets of Strixhaven Crash Course", "") == "SOS"
+
+    def test_original_strixhaven_is_stx(self):
+        assert _extract_set_hint("Strixhaven Set Review", "") == "STX"
+
     def test_no_match_returns_none(self):
         result = _extract_set_hint("General Strategy Episode", "talking about drafting")
         assert result is None or isinstance(result, str)
+
+    def test_mtg_acronym_not_a_set_code(self):
+        assert _extract_set_hint("March MTG Madness", "") is None
 
 
 class TestParseDuration:

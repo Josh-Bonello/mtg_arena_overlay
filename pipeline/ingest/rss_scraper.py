@@ -36,8 +36,8 @@ SET_NAME_MAP = {
     "murders": "MKM",
     "thunder junction": "OTJ",
     "caverns of ixalan": "LCI",
+    "secrets of strixhaven": "SOS",
     "strixhaven": "STX",
-    "secrets of strixhaven": "STX",
     "tarkir": "TDM",
     "aetherdrift": "AED",
     "final fantasy": "FIN",
@@ -58,10 +58,15 @@ def _extract_set_hint(title: str, description: str) -> str | None:
     for name, code in SET_NAME_MAP.items():
         if name in text:
             return code
+    _NOT_SET_CODES = {
+        "THE", "AND", "FOR", "NOT", "BUT", "RSS", "MTG", "TCG",
+        "LoL", "LOL", "LR", "SOS", "FAQ", "TBD", "TBA", "FYI",
+        "TMNT", "VOD", "API", "URL", "PDF", "ALL",
+    }
     set_code_match = re.search(r"\b([A-Z]{3,4})\b", title)
     if set_code_match:
         candidate = set_code_match.group(1)
-        if candidate not in {"THE", "AND", "FOR", "NOT", "BUT", "RSS"}:
+        if candidate not in _NOT_SET_CODES:
             return candidate
     return None
 
