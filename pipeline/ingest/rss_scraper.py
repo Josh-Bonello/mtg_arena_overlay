@@ -11,8 +11,8 @@ from xml.etree import ElementTree
 import requests
 
 FEEDS = {
-    "lords_of_limited": "https://feeds.transistor.fm/lords-of-limited",
-    "limited_resources": "https://feeds.libsyn.com/51742/rss",
+    "lords_of_limited": "https://audioboom.com/channels/5064090.rss",
+    "limited_resources": "https://rss.libsyn.com/shows/44533/destinations/143254.xml",
 }
 
 SET_NAME_MAP = {
