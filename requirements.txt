@@ -1,0 +1,14 @@
+openai-whisper>=20231117,<20250101
+pyannote.audio>=3.1.0,<4.0
+rapidfuzz>=3.6.0,<4.0
+pyahocorasick>=2.0.0,<3.0
+requests>=2.31.0,<3.0
+requests-ratelimiter>=0.4.0,<1.0
+yt-dlp>=2024.1.0
+pytesseract>=0.3.10,<1.0
+Pillow>=10.2.0,<12.0
+anthropic>=0.34.0,<1.0
+python-dotenv>=1.0.0,<2.0
+tiktoken>=0.6.0,<1.0
+opencv-python>=4.9.0,<5.0
+tqdm>=4.66.0,<5.0
