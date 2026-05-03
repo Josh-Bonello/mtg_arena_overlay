@@ -36,6 +36,18 @@ SET_NAME_MAP = {
     "murders": "MKM",
     "thunder junction": "OTJ",
     "caverns of ixalan": "LCI",
+    "strixhaven": "STX",
+    "secrets of strixhaven": "STX",
+    "tarkir": "TDM",
+    "aetherdrift": "AED",
+    "final fantasy": "FIN",
+    "edge of eternities": "EOE",
+    "amonkhet remastered": "AKR",
+    "zendikar rising": "ZNR",
+    "kaldheim": "KHM",
+    "innistrad midnight hunt": "MID",
+    "innistrad crimson vow": "VOW",
+    "new capenna": "SNC",
 }
 
 DATA_DIR = Path("data/episode_metadata")
@@ -71,9 +83,15 @@ def _parse_duration(duration_str: str | None) -> int | None:
 
 
 def _parse_episode_number(title: str) -> int | None:
+    # "Episode 423", "ep. 50", "#100"
     match = re.search(r"\b(?:ep(?:isode)?\.?\s*)(\d+)\b|#\s*(\d+)\b", title, re.IGNORECASE)
     if match:
         return int(match.group(1) or match.group(2))
+    # "Limited Resources 851 - ..." / "Lords of Limited 423 - ..."
+    match = re.search(r"(?:limited resources|lords of limited)\s+(\d+)", title, re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    # Title starts with a number: "100: Strategy"
     match = re.search(r"^(\d+)[:\-\s]", title)
     if match:
         return int(match.group(1))
@@ -151,7 +169,7 @@ def scrape(since: str | None = None) -> dict[str, list[dict]]:
 
         results[show] = episodes
         dates = [ep["published_at"] for ep in episodes if ep["published_at"]]
-        date_range = f"{min(dates)[:10]} → {max(dates)[:10]}" if dates else "n/a"
+        date_range = f"{min(dates)[:10]} to {max(dates)[:10]}" if dates else "n/a"
         print(f"  {len(episodes)} episodes  |  {date_range}  |  saved to {out_path}")
 
         # Console sample — first 3 episodes
