@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment / secrets — never commit
+.env
+
+# Audio and video downloads (large, not committed)
+*.mp3
+*.wav
+*.m4a
+*.ogg
+*.flac
+*.opus
+*.webm
+*.mp4
+*.mkv
+
+# Generated data caches (populated at runtime)
+data/card_cache/
+data/seventeen_lands_cache/
+data/corpus/
+data/transcripts/
+data/audio/
+data/video/
+data/episode_metadata/
+data/diarized/
+data/speaker_map/
+data/cube_profiles/
+
+# Whisper model weights
+*.pt
+
+# Tesseract
+*.traineddata
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# NOTE: data/format_profiles/ is intentionally NOT ignored.
+# Committed format profiles are part of the codebase.
+# .env.example is intentionally NOT ignored — it is the template, not the secret.
