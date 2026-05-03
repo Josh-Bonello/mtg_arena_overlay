@@ -1,0 +1,23 @@
+{
+  "_comment": "Canonical schema for format profile files. Copy to {SET_CODE}.json and populate.",
+  "set_code": "EXAMPLE",
+  "event_type": "PremierDraft",
+  "computed_at": "2025-01-01T00:00:00Z",
+  "confidence": "low",
+  "confidence_source": "podcast_only",
+  "format_type": "goodstuff",
+  "format_speed": "medium",
+  "format_notes": "Fill in after 17lands data matures.",
+  "on_play_wr": null,
+  "color_pair_wr_spread": null,
+  "fixing_priority": "medium",
+  "curve_priority": "medium",
+  "stay_open_until_pick": 6,
+  "splash_threshold": 0.630,
+  "archetype_synergy_bonus": 0.010,
+  "open_signal_weight": 1.0,
+  "top_color_pairs": [],
+  "color_pair_wrs": {},
+  "archetypes": {},
+  "17lands_available": true
+}
