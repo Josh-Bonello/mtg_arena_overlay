@@ -81,6 +81,12 @@ class TestParseEpisodeNumber:
     def test_hash_prefix(self):
         assert _parse_episode_number("#100 - Special") == 100
 
+    def test_limited_resources_format(self):
+        assert _parse_episode_number("Limited Resources 851 - Secrets of Strixhaven") == 851
+
+    def test_lords_of_limited_format(self):
+        assert _parse_episode_number("Lords of Limited 423 - Bloomburrow First Impressions") == 423
+
     def test_no_number(self):
         assert _parse_episode_number("General Strategy Talk") is None
 
